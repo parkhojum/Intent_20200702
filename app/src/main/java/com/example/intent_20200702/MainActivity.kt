@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
             //Intent() => JAVA Intent () => 객체화
 
-            //비행기 티캣 발권권
+            //비행기 티캣 발권
 
            val myIntent = Intent(this, FirstActivity::class.java)
 
