@@ -16,7 +16,7 @@ class EditNicknameActivity : AppCompatActivity() {
         okBtn.setOnClickListener {
 
             //뭐라고 닉네임을 바꾸는지 받아오자
-            val inputNick = changeNickNameBtn.text.toString()
+            val inputNick = nicknameEdt.text.toString()
 
             //복귀(finsh()) 하는 길에 데이터를 들고가게 해야함.
 

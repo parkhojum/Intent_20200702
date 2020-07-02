@@ -8,22 +8,24 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    val REO_FOR_NICKNAME = 1000
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        changeNickNameBtn.setOnClickListener {
 
+            val myIntent = Intent(this,EditNicknameActivity::class.java)
+
+            //이동 출발 :startActivity => 그냥 가는 것이 (startActivity)아닌 결과를 가지러 이동
+            //어떤 결과를 얻으러 가는지를 고유 번호로 구별해줘야함.
+            startActivityForResult(myIntent, REO_FOR_NICKNAME)
+        }
         //두번째 액티비티로 데이터 전달하기
 
         sendToSecondBtn.setOnClickListener {
 
-           changeNickNameBtn.setOnClickListener {
 
-               val myIntent = Intent(this,EditNicknameActivity::class.java)
-
-               //이동 출발 :startActivity => 그냥 가는 것이 (startActivity)아닌 결과를 가지러 이동
-               //어떤 결과를 얻으러 가는지를 고유 번호로 구별해줘야함.
-               startActivityForResult(myIntent, 1000)
-           }
 
             val inputmssge = messageEdt.text.toString()
 
@@ -58,13 +60,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityReenter(repuestCode: Int,resultCode: Int ,data: Intent?) {
-        super.
-        if (repuestCode == 1000)
-            if (resultCode == Activity.RESULT_OK)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REO_FOR_NICKNAME) {
 
-                val newNickName = data?.getSerializableExtra("nickName")
+            if (resultCode == Activity.RESULT_OK){
+                val newNickname = data?.getStringExtra("nickName")
 
-        nickNameTxt.text = newNickName
+                nickNameTxt.text = newNickname
+            }
+
+        }
     }
 }
