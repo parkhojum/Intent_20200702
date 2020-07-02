@@ -1,5 +1,6 @@
 package com.example.intent_20200702
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,7 +20,8 @@ class MainActivity : AppCompatActivity() {
 
                val myIntent = Intent(this,EditNicknameActivity::class.java)
 
-               //이동 출발 :startActivity =>
+               //이동 출발 :startActivity => 그냥 가는 것이 (startActivity)아닌 결과를 가지러 이동
+               //어떤 결과를 얻으러 가는지를 고유 번호로 구별해줘야함.
                startActivityForResult(myIntent, 1000)
            }
 
@@ -54,5 +56,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
 
         }
+    }
+
+    override fun onActivityReenter(repuestCode: Int,resultCode: Int ,data: Intent?) {
+        super.
+        if (repuestCode == 1000)
+            if (resultCode == Activity.RESULT_OK)
+
+                val newNickName = data?.getSerializableExtra("nickName")
+
+        nickNameTxt.text = newNickName
     }
 }
