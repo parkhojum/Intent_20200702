@@ -11,10 +11,12 @@
     tools:context=".SecondActivity">
 
     <TextView
+        android:id="@+id/receivdMessageTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="입력한 메세지 표시"
         android:textColor="#FFFFFF"
         android:textSize="25dp"/>
+
 
 </LinearLayout>

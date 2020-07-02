@@ -14,7 +14,15 @@ class MainActivity : AppCompatActivity() {
         //두번째 액티비티로 데이터 전달하기
 
         sendToSecondBtn.setOnClickListener {
+            val inputmssge = messageEdt.text.toString()
 
+               val myIntent = Intent(this, SecondActivity::class.java)
+
+            //티켓 정보를 이용해 수화물 첨부
+            myIntent.putExtra("massage", inputmssge)
+
+            //탑승 / 출발
+            startActivity(myIntent)
 
         }
 
