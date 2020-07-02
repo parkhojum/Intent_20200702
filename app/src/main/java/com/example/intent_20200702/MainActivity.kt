@@ -14,6 +14,15 @@ class MainActivity : AppCompatActivity() {
         //두번째 액티비티로 데이터 전달하기
 
         sendToSecondBtn.setOnClickListener {
+
+           changeNickNameBtn.setOnClickListener {
+
+               val myIntent = Intent(this,EditNicknameActivity::class.java)
+
+               //이동 출발 :startActivity =>
+               startActivityForResult(myIntent, 1000)
+           }
+
             val inputmssge = messageEdt.text.toString()
 
             val inputNum = numberEdt.text.toString().toInt()
